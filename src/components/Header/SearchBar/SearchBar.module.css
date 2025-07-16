@@ -14,9 +14,14 @@
     max-width: 250px;
 }
 
+.search-bar input:focus{
+    outline: none;
+}
+
 .search-bar button{
+    position: relative;
     min-width: 80px;
-    color: white;
+    color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -25,6 +30,38 @@
     border-radius: 0;
     height: 50px;
     width: 80px;
-    background-color: black;
+    background-color: var(--third-color);
     cursor: pointer;
+    transition: width 0.3s, background 0.3s;
+}
+
+.search-bar button:hover{
+    background-color: var(--fourth-color);
+}
+
+.search-btn.expanded {
+    width: 120px;
+    background: var(--fourth-color);
+}
+
+span.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s, transform 0.3s;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(0);
+    width: 100%;
+}
+
+span.slide-out {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.3s, transform 0.3s;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-40px);
+    width: 100%;
 }

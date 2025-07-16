@@ -17,11 +17,11 @@
 
 .navigation ul li{
     width: 150px;
-    background-color: white;
+    background-color: var(--second-color);
 }
 
 .navigation ul li:hover {
-    background-color: black;
+    background-color: var(--first-color);
 }
 
 .navigation a{

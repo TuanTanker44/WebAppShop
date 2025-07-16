@@ -1,0 +1,28 @@
+.block-line-guide {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.block-line-guide p{
+    margin-left: 50px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.block-line-guide p::after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    bottom: -1px;
+    width: 143px;
+    height: 2px;
+    background-color: red;
+}
+
+
+

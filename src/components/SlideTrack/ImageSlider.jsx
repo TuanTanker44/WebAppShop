@@ -1,7 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import styles from './ImageSlider.module.css';
+import columnAd1 from '../../assets/images/column-ad1.png';
+import columnAd2 from '../../assets/images/column-ad2.png';
+import columnAd3 from '../../assets/images/column-ad3.png';
+import columnAd4 from '../../assets/images/column-ad4.png';
 
-const ImageSlider = ({ images, width = 600, height = 400 }) => {
+const ImageSlider = ({className, images, links, width = 600, height = 400, onLinkClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -21,7 +26,8 @@ const ImageSlider = ({ images, width = 600, height = 400 }) => {
   };
 
   return (
-    <div className={styles["slider-container"]} style={{ width: `${width}px`, height: `${height}px` }}>
+    <div className={className}>
+    <div className={`${styles["slider-container"]}`} style={{ width: `${width}px`, height: `${height}px` }}>
       <div className={styles["slider-wrapper"]}>
       <div
       className={styles["slides-track"]}
@@ -31,15 +37,22 @@ const ImageSlider = ({ images, width = 600, height = 400 }) => {
         transition: 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)'
       }}
     >
-      {images.map((img, idx) => (
-        <img
-          key={idx}
-          src={img}
-          alt={`Slide ${idx + 1}`}
-          className={styles["slide-image"]}
-          style={{ width: `${100 / images.length}%` }}
-        />
+          
+      {links.map((link, idx) => (
+          <a
+            key={idx}
+            href={link}
+            className={`${styles["slide-image"]}`}
+            onClick={() => onLinkClick(idx)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {images[idx] && (
+              <img src={images[idx]} alt={`${idx + 1}`} className={styles["slide-image"]} />
+            )}
+          </a>
       ))}
+      
     </div>
         
         <button className={`${styles['slider-button']} ${styles['prev-button']}`} onClick={prevSlide}>
@@ -61,7 +74,14 @@ const ImageSlider = ({ images, width = 600, height = 400 }) => {
           ))}
         </div>
       </div>
-    </div>
+      <div className={styles["column-ads"]}>
+        <a href="#"><img src={columnAd1} alt="Column Ad 1" /></a>
+        <a href="#"><img src={columnAd2} alt="Column Ad 2" /></a>
+        <a href="#"><img src={columnAd3} alt="Column Ad 3" /></a>
+        <a href="#"><img src={columnAd4} alt="Column Ad 4" /></a>
+      </div>
+      </div>
+      </div>
   );
 };
 

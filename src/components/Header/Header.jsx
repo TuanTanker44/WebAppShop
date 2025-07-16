@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import React, { useState } from 'react';
 import styles from './Header.module.css';
@@ -50,25 +51,18 @@ function Header() {
 
   return (
       <header className={styles.header}>
-        <div className={styles.logo}>
-            <Logo />  
-        </div>
-        <div className={styles.navigation}>
-            <Navigation />
-        </div>
-        <div className={styles.search_bar}>
-            <SearchBar />
-          </div>
-        <div className={styles.auth_buttons}>
-        <UserActions
-          isLoggedIn = {isLoggedIn}
-          username = {username}
-          onLogin = {onLogin}
-          onRegister = {onRegister}
-          onLogout = {onLogOut}
+        <Logo className={styles.logo} />
+        <Navigation className={styles.navigation} />
+        <SearchBar className={styles.search_bar} />
+      <UserActions
+          className={styles.auth_buttons}
+          isLoggedIn={isLoggedIn}
+          username={username}
+          onLogin={onLogin}
+          onRegister={onRegister}
+          onLogout={onLogOut}
         />
-        </div>
-    </header>
+      </header>
   );
 }
 
